@@ -1,3 +1,4 @@
+import Header from "./components/Header"
 
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <h1>This is our new music app</h1>
       <p>To create playlists thru spotify API</p>
+      <Header />
     </>
   )
 }
