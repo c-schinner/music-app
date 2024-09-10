@@ -2,7 +2,9 @@
 
 const Header = () => {
     return (
-    <div>Header</div>
+        <div className=" flex-1">
+            <div>Create your playlist</div>
+        </div>
     )
 }
 

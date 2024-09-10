@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-    <div>
+    <div className="bg-slate-500">
         <Header />
       </div>
     </>
