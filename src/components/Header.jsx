@@ -2,7 +2,7 @@
 
 const Header = () => {
     return (
-        <div className=" flex-1">
+        <div className="text-3xl font-bold">
             <div>Create your playlist</div>
         </div>
     )
