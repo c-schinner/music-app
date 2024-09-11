@@ -3,7 +3,7 @@
 const MusicList = () => {
     return (
         <>
-            <div className="">
+            <div className="h-full w-1/2 mx-auto">
                 MusicList
             </div>
         </>

@@ -9,15 +9,20 @@ const NavBar = () => {
     };
 
     return (
-        <div className="position: relative">
+        <div className="relative">
             <FaBars
             onClick={toggleMenu}
-            className="absolute mt-10 mr-10 fontSize-24 cursor: cursor-pointer"
+            className="absolute mt-10 mr-10 fontSize-24 cursor-pointer"
             />
             {isOpen && (
-                <ul className="absolute mt-10 mr-10 bg-white p-10 box-shadow">
-                <li id="#profile">Profile</li>
-                <li id="#">Something</li>
+                <ul className="absolute mt-10 mr-10 p-10 box-shadow rounded-lg">
+                    <button
+                        onClick={toggleMenu}
+                        className="bg-black text-white border rounded-sm text-sm cursor-pointer">
+                            X
+                    </button>
+                    <li id="#profile">Profile</li>
+                    <li id="#">Something</li>
             </ul>
             )}
         </div>

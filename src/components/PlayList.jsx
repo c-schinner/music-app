@@ -2,7 +2,7 @@
 const PlayList = () => {
     return (
         <>
-            <div className="">
+            <div className="h-full w-1/2 mx-auto">
                 PlayList
             </div>
         </>
