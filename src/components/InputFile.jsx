@@ -68,15 +68,15 @@ const InputFile = () => {
 
     return (
         <div>
-            <div className="flex items-center w-full mt-10">
+            <div className="flex items-center w-full mt-10 justify-center">
                 <input 
                     type="text" 
                     placeholder="Search songs, artists, or albums" 
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="p-3 rounded-md w-4/5 mx-auto opacity-50" />
+                    className="p-3 rounded-md w-4/5 sm:w-2/3 md:w-1/2 lg:w-1/3 opacity-50" />
                 <button 
-                    className="w-1/5 p-2 ml-2 bg-blue-400 text-white rounded-md border border-blue-600 transform active:scale-95 transition-transform duration-150"
+                    className="p-2 ml-2 bg-blue-400 text-white rounded-md border border-blue-600 transform active:scale-95 transition-transform duration-150"
                     onClick={searchSpotify}
                 >
                     Search
