@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <div 
-    className="bg-slate-500 flex flex-col h-screen"
+    className="flex flex-col h-screen"
     style={{
       backgroundImage: `url(${musicpic})`,
       backgroundSize: "cover",
