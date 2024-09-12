@@ -58,6 +58,14 @@ const InputFile = () => {
         setLoading(false);
     }
 
+    const addToPlaylist = (song) => {
+        setPlaylist([...playlist, song]);
+    }
+
+    const removeFromPlaylist = (songId) => {
+        setPlaylist(playlist.filter(song => song.id !== songId));
+    }
+
     return (
         <div>
             <div className="flex items-center w-full mt-10">
@@ -78,8 +86,8 @@ const InputFile = () => {
             </div>
             {!loading && !error && (
                 <div className="flex justify-center p-5 h-full mt-20">
-                <MusicList songs={songs} />
-                <PlayList playlist={playlist} setPlaylist={setPlaylist} />
+                <MusicList songs={songs} addToPlaylist={addToPlaylist} />
+                <PlayList playlist={playlist} removeFromPlaylist={removeFromPlaylist} />
             </div>
             )}
         </div>

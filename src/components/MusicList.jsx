@@ -1,6 +1,6 @@
 
 
-const MusicList = ({ songs }) => {
+const MusicList = ({ songs, addToPlaylist }) => {
 
 
     return (
@@ -11,9 +11,17 @@ const MusicList = ({ songs }) => {
                     <ul className="space-y-4">
                         {songs.map((song) => (
                             <li key={song.id} className="border-b pb-2">
-                                <p className="text-lg font-bold">{song.name}</p>
-                                <p className="text-sm">{song.artists.map(artist => artist.name).join(', ')}</p>
-                                <p className="text-sm">{song.album.name}</p>
+                                <div>
+                                    <p className="text-lg font-bold">{song.name}</p>
+                                    <p className="text-sm">{song.artists.map(artist => artist.name).join(', ')}</p>
+                                    <p className="text-sm">{song.album.name}</p>
+                                </div>
+                                <button
+                                className="bg-blue-300 text-white px-3 py-1 rounded"
+                                onClick={() => addToPlaylist(song)}
+                                >
+                                    Add To Playlist
+                                </button>
                             </li>
                         ))}
                     </ul>
