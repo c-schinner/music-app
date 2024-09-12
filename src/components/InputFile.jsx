@@ -13,8 +13,8 @@ const InputFile = () => {
     const [error, setError] = useState(null);
     const [accessToken, setAccessToken] = useState('');
 
-    const clientId = 'e59d2b167a764ea19850debe44ebea90';
-    const clientSecret = '83fbe50af7f64efc894a4317ed737bee';
+    const clientId = 'Your client Id';
+    const clientSecret = 'your client Secret';
 
     const getAccessToken = async () => {
         if (accessToken) return accessToken;
