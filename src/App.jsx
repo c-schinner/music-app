@@ -1,12 +1,21 @@
 import Header from "./components/Header"
 import InputFile from "./components/InputFile"
+import musicpic from "./assets/musicpic.jpeg"
 
 
 function App() {
 
   return (
     <>
-    <div className="bg-slate-500 flex flex-col h-screen">
+    <div 
+    className="bg-slate-500 flex flex-col h-screen"
+    style={{
+      backgroundImage: `url(${musicpic})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}
+    >
       <div className="h-[100px] p-10">
           <Header />
       </div>
