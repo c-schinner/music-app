@@ -11,19 +11,49 @@ const InputFile = () => {
     const [playlist, setPlaylist] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [accessToken, setAccessToken] = useState('');
+
+    const clientId = 'e59d2b167a764ea19850debe44ebea90';
+    const clientSecret = '83fbe50af7f64efc894a4317ed737bee';
+
+    const getAccessToken = async () => {
+        if (accessToken) return accessToken;
+
+        const response = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + btoa(`${clientId}:${clientSecret}`),
+            },
+            body: 'grant_type=client_credentials'
+        });
+
+        const data = await response.json();
+        setAccessToken(data.access_token);
+        return data.access_token;
+    }
 
     const searchSpotify = async () => {
         setLoading(true);
         setError(null);
+
         try {
-            const response = await fetch(``);
+            const token = await getAccessToken();
+            const response = await fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+            });
+
             if (!response.ok) {
-                throw new Error('Failed to load information.')
+                throw new Error('Failed to load information.');
             }
+
             const data = await response.json();
-            setSongs(data.tracks.itsm);
+            setSongs(data.tracks.items);
+
         } catch (e) {
-            setError(e);
+            setError(e.message);
         }
         setLoading(false);
     }
