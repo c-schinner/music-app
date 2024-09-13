@@ -3,7 +3,6 @@ import MusicList from "./MusicList"
 import PlayList from "./PlayList"
 
 
-
 const InputFile = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -14,7 +13,7 @@ const InputFile = () => {
     const [accessToken, setAccessToken] = useState('');
 
     const clientId = 'Your client Id';
-    const clientSecret = 'your client Secret';
+    const clientSecret = 'Your client secret';
 
     const getAccessToken = async () => {
         if (accessToken) return accessToken;
@@ -56,6 +55,7 @@ const InputFile = () => {
             setError(e.message);
         }
         setLoading(false);
+        setSearchTerm('');
     }
 
     const addToPlaylist = (song) => {

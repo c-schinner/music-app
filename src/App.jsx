@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col h-screen w-full">
         <div
         className="h-[250px] w-full"
         style={{
@@ -20,7 +20,7 @@ function App() {
               <Header />
           </div>
         </div>
-        <div className="flex-grow bg-gray-400">
+        <div className="flex-grow bg-gradient-to-br from-blue-900 to-green-900">
           <InputFile />
         </div>
       </div>
