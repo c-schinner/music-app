@@ -14,6 +14,7 @@ const InputFile = () => {
 
     const clientId = 'Your client Id';
     const clientSecret = 'Your client secret';
+    // Go to Spotify for devs to get these credentials
 
     const getAccessToken = async () => {
         if (accessToken) return accessToken;
