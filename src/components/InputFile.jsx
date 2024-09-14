@@ -2,6 +2,10 @@ import { useState } from 'react';
 import MusicList from "./MusicList"
 import PlayList from "./PlayList"
 
+// We need to be able to save playlists in a profile and be able to 
+// bring them back when loaded again.
+// Also we need to be able to create multiple playlists.
+
 
 const InputFile = () => {
 
@@ -11,6 +15,7 @@ const InputFile = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [accessToken, setAccessToken] = useState('');
+    const [saveList, setSaveList] = useState([]);
 
     const clientId = 'Your client Id';
     const clientSecret = 'Your client secret';
@@ -65,6 +70,11 @@ const InputFile = () => {
 
     const removeFromPlaylist = (songId) => {
         setPlaylist(playlist.filter(song => song.id !== songId));
+    }
+
+    // adding in functionality to save our playlists
+    const savePlayList = () => {
+        localStorage.setItem('savedPlaylist', JSON.stringify(saveList))
     }
 
     return (
