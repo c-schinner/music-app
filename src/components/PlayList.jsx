@@ -1,10 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const PlayList = ({ playlist, removeFromPlaylist }) => {
 
     const [nameList, setNameList] = useState('');
-    const [saveList, setSaveList] = useState(false);
+    const [savedPlaylists, setSavedPlaylists] = useState([]);
+
+    useEffect(() => {
+        const storedPlaylists = JSON.parse(localStorage.getItem('playlists')) || [];
+        setSavedPlaylists(storedPlaylists);
+    }, []);
+
+    const savePlaylist = () => {
+        if (!nameList) return;
+
+        const newPlaylist = {
+            name: nameList,
+            songs: playlist,
+        }
+
+        const updatedPlaylists = [...savedPlaylists, newPlaylist];
+        setSavedPlaylists(updatedPlaylists);
+        localStorage.setItem('playlists', JSON.stringify(updatedPlaylists));
+        setNameList('');
+    };
 
     return (
         <>
@@ -16,11 +35,27 @@ const PlayList = ({ playlist, removeFromPlaylist }) => {
                 placeholder="Create playlist"
                 value={nameList}
                 onChange={(e) => setNameList(e.target.value)}
-                className="mt-1 p-1 rounded-md opacity-50 w-[140px] h-[30px] text-black" />
+                className="p-1 rounded-md opacity-50 w-[140px] h-[32px] text-black" />
             <button
-            className="h-8 px-4 mt-1 text-sm bg-blue-400 text-white rounded-md border border-blue-600 transform active:scale-95 transition-transform duration-150">
+            onClick={savePlaylist}
+            className="h-8 px-4 text-sm bg-blue-400 text-white rounded-md border border-blue-600 transform active:scale-95 transition-transform duration-150">
                 Save
             </button>
+            </div>
+
+            <div className="mt-5">
+                <h3 className="text-md font-semibold">Saved Playlists:</h3>
+                <select className="mt-2 p-2 rounded-md opacity-50">
+                    {savedPlaylists.length > 0 ? (
+                        savedPlaylists.map((playlist, index) => (
+                            <option key={index} value={playlist.name}>
+                                {playlist.name}
+                            </option>
+                        ))
+                    ) : (
+                        <option>No playlists</option>
+                    )}
+                </select>
             </div>
             
             {playlist.length > 0 ? (
@@ -47,7 +82,7 @@ const PlayList = ({ playlist, removeFromPlaylist }) => {
                     ))}
                 </ul>
             ) : (
-                <p>No Songs in the playlist.</p>
+                <p></p>
             )}
             </div>
         </>
