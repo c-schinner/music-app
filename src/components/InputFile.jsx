@@ -15,8 +15,6 @@ const InputFile = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [accessToken, setAccessToken] = useState('');
-    // Added the save List state
-    const [saveList, setSaveList] = useState([]);
 
     const clientId = 'Your client Id';
     const clientSecret = 'Your client secret';
@@ -71,11 +69,6 @@ const InputFile = () => {
 
     const removeFromPlaylist = (songId) => {
         setPlaylist(playlist.filter(song => song.id !== songId));
-    }
-
-    // adding in functionality to save our playlists
-    const savePlayList = () => {
-        localStorage.setItem('savedPlaylist', JSON.stringify(saveList))
     }
 
     return (
