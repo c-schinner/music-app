@@ -3,7 +3,7 @@ const PlayList = ({ playlist, removeFromPlaylist }) => {
 
     return (
         <>
-            <div className="w-full sm:w-1/2 mx-auto text-white ml-10 p-4">
+            <div className="w-full sm:w-1/2 mx-auto text-white p-4">
             <h2 className="text-2xl font-semibold mb-4">Play List:</h2>
             {playlist.length > 0 ? (
                 <ul className="space-y-4">
