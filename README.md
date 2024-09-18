@@ -1,8 +1,7 @@
-# React + Vite
+## Music Playlist Creator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app uses the Spotify API to fetch artist data form the Spotify database, allowing the user to look up information by Artist, Album, or song.
 
-Currently, two official plugins are available:
+You can create your own playlist and save it locally. Users can modify their playlists or delete the entire playlist and create more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The interface is smooth and simple to use, using TailwindCSS for all styling.
